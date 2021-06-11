@@ -1,0 +1,6 @@
+<launch>
+  <include file="$(find apriltag_ros)/launch/continuous_detection.launch" />
+  <include file="$(find rplidar_ros)/launch/rplidar.launch" />
+  <include file="$(find ucsd_robo_car_simple_ros)/launch/throttle_and_steering_launch.launch" />
+  <node name="apriltag_guidance_node" pkg="ucsd_robo_car_simple_ros" type="april_steering.py"/>
+</launch>
