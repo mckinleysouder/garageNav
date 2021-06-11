@@ -11,13 +11,11 @@ LIDAR_TOPIC_NAME = '/scan'
 STEERING_TOPIC_NAME = '/steering'
 THROTTLE_TOPIC_NAME = '/throttle'
 APRILTAG_TOPIC_NAME = '/tf'
-STEERING_VAL = 0.2
 
 global steering_float, throttle_float
 steering_float = Float32()
 throttle_float = Float32()
 
-#def DisplayImage(msg):
 
 class Car:
     def __init__(self):
@@ -92,7 +90,6 @@ if __name__ == '__main__':
     apriltag_subscriber = rospy.Subscriber(APRILTAG_TOPIC_NAME, TFMessage, car.apriltag_callback)
     lidar_subscriber = rospy.Subscriber(LIDAR_TOPIC_NAME, LaserScan, car.lidar_callback)
 
-    #camera_subscriber = rospy.Subscriber(APRILTAG_CAMERA_TOPIC_NAME, Image, DisplayImage)
 
     steering_pub = rospy.Publisher(STEERING_TOPIC_NAME, Float32, queue_size=1)
     throttle_pub = rospy.Publisher(THROTTLE_TOPIC_NAME, Float32, queue_size=1)
